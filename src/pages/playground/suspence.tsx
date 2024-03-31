@@ -10,7 +10,7 @@ const longProcess = async (): Promise<string> => {
 }
 
 export default function () {
-    console.log('default')
+    // TODO(torikatsu): return imidiatly and show loading
     return (
         <div className="flex flex-col gap-8">
             <h1>suspence</h1>
