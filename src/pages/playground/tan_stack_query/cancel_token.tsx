@@ -1,6 +1,6 @@
 import { skipToken, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { Row } from "../_components/table";
+import { Row } from "../../_components/table";
 import { rejects } from "assert";
 
 const key = "cancel_token_key";
@@ -23,7 +23,7 @@ const longProcess = async (signal: AbortSignal): Promise<string> => {
     return "done";
 }
 
-export default function () {
+export default function CancelTokenPage () {
     const queryClient = useQueryClient();
 
 

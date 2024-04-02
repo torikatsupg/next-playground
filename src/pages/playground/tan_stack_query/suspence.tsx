@@ -1,6 +1,6 @@
 'use client'
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Row } from "../_components/table";
+import { Row } from "../../_components/table";
 import { Suspense } from "react";
 
 const key = "suspence_key";
@@ -9,7 +9,7 @@ const longProcess = async (): Promise<string> => {
     return "done";
 }
 
-export default function () {
+export default function SuspensePage () {
     // TODO(torikatsu): return imidiatly and show loading
     return (
         <div className="flex flex-col gap-8">
