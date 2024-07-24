@@ -1,3 +1,3 @@
-import { OnlyRHFPage } from "@/_pages/async_validation/only_rhf";
+import { OnlyRHFPage } from "@/_pages/async_validation/OnlyRHF";
 
 export default OnlyRHFPage;
