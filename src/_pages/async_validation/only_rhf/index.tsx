@@ -1,9 +1,9 @@
 import { TITLE } from "./const";
 
-export const AsyncValidationPage = () => {
+export const OnlyRHFPage = () => {
   return (
     <div>
-      <h1>async validation</h1>
+      <h1>Async validation</h1>
       <p>{TITLE}</p>
     </div>
   );
