@@ -17,6 +17,21 @@ export default function Home() {
             </li>
           </ul>
         </li>
+
+        <li>
+          Query Params
+          <ul>
+            <li>
+              <Link href="/playground/query_params/nuqs">{"nuqs"}</Link>
+            </li>
+
+            <li>
+              <Link href="/playground/query_params/default_router">
+                {"default_router"}
+              </Link>
+            </li>
+          </ul>
+        </li>
       </ul>
     </main>
   );
