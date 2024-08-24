@@ -11,7 +11,7 @@ export default function NuqsPage() {
       <Input
         label={`firstName, value: ${firstName}, type: ${typeof firstName}`}
         value={firstName ?? ""}
-        onChange={(e) => setFirstName(e.target.value)}
+        onChange={(e) => setFirstName(e.target.value, { shallow: false })}
         error={undefined}
       />
 

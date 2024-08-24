@@ -22,7 +22,15 @@ export default function Home() {
           Query Params
           <ul>
             <li>
+              {" "}
               <Link href="/playground/query_params/nuqs">{"nuqs"}</Link>
+            </li>
+
+            <li>
+              {" "}
+              <Link href="/playground/query_params/nuqs_json">
+                {"nuqs_json"}
+              </Link>
             </li>
 
             <li>
