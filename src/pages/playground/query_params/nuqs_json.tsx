@@ -1,14 +1,21 @@
-import { Button } from "@/components/button";
-import { Input } from "@/components/Input";
+import { Button } from "@/components/Button";
 import { parseAsJson, useQueryState } from "nuqs";
+import { useEffect } from "react";
 import * as z from "zod";
 
 const schema = z.object({
   firstName: z.string().nullish(),
   lastName: z.string().nullish(),
 });
+// NOTE: パースに失敗する場合, useQueryStateはnullとなる
+// .transform((_) => {
+//   throw new Error("This should never be called");
+// });
 
 export default function NuqsPage() {
+  useEffect(() => {
+    localStorage.setItem("debug", "nuqs");
+  });
   const [json, setJson] = useQueryState("json", parseAsJson(schema.parse));
 
   return (
