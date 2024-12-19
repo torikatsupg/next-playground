@@ -40,6 +40,17 @@ export default function Home() {
             </li>
           </ul>
         </li>
+
+        <li>
+          RHF
+          <ul>
+            <li>
+              <Link href="/playground/react-hook-form/disabled">
+                {"disabled"}
+              </Link>
+            </li>
+          </ul>
+        </li>
       </ul>
     </main>
   );
