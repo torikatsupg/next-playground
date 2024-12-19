@@ -12,26 +12,39 @@ import {
 import * as z from "zod";
 
 const FORM_SCHEMA = z.object({
-  test: z.string(),
+  specified: z.string(),
+  unspecified: z.string(),
 });
 
 export default function Page() {
   const [formDisabled, setFormDisabled] = useState(false);
   const [fieldDisabled, setFieldDisabled] = useState(false);
 
-  const methods = useForm({
+  const methods = useForm<z.infer<typeof FORM_SCHEMA>>({
     resolver: zodResolver(FORM_SCHEMA),
     disabled: formDisabled,
     defaultValues: {
-      test: "test",
+      specified: "",
+      unspecified: "",
     },
   });
 
   const formState = useFormState({ control: methods.control });
-  const testField = useController({ control: methods.control, name: "test" });
-  const testFieldRegistrationProps = methods.register("test", {
-    disabled: formDisabled,
+
+  const specifiedField = useController({
+    control: methods.control,
+    name: "specified",
   });
+  const unspecifiedField = useController({
+    control: methods.control,
+    name: "unspecified",
+  });
+
+  const specifiedFieldProps = methods.register("specified", {
+    disabled: fieldDisabled
+  });
+
+  const unspecifiedFieldProps = methods.register("unspecified");
 
   return (
     <div>
@@ -48,9 +61,11 @@ export default function Page() {
       <hr />
 
       <form>
+        <Input {...specifiedFieldProps} label={"specified"} error={undefined} />
+
         <Input
-          {...testFieldRegistrationProps}
-          label={"test"}
+          {...unspecifiedFieldProps}
+          label={"unspecified"}
           error={undefined}
         />
       </form>
@@ -71,8 +86,14 @@ export default function Page() {
             },
             result: {
               form: formState.disabled,
-              "field(useController)": testField.field.disabled ?? false,
-              "field(register)": testFieldRegistrationProps.disabled ?? false,
+              specified: {
+                useController: specifiedField.field.disabled ?? null,
+                register: specifiedFieldProps.disabled ?? null,
+              },
+              unspecified: {
+                useController: unspecifiedField.field.disabled ?? null,
+                register: unspecifiedFieldProps.disabled ?? null,
+              },
             },
           },
           null,
